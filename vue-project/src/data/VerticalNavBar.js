@@ -1,0 +1,35 @@
+export default [
+  { title: 'Dashboard', icon: 'mdi-home', route: '/' },
+  {
+    title: 'Asset Management',
+    icon: 'mdi-archive',
+    route: '/asset-management',
+    subMenu: [
+      { title: 'Assets', icon: 'mdi-cube', route: '/asset-management/Assets' },
+      { title: 'Spare parts', icon: 'mdi-tools', route: '/asset-management/spare-parts' },
+      { title: 'Asset Stock', icon: 'mdi-warehouse', route: '/asset-management/asset-stock' },
+      { title: 'Perishable', icon: 'mdi-fridge', route: '/asset-management/perishable' },
+    ],
+  },
+  {
+    title: 'Contact',
+    icon: 'mdi-archive',
+    route: '/contact',
+    subMenu: [
+      { title: 'customers', icon: 'mdi-account', route: '/asset-management/customers' },
+      { title: 'property ', icon: 'mdi-office-building', route: '/asset-management/property' },
+      { title: 'supplier', icon: 'mdi-warehouse', route: '/asset-management/supplier' },
+      { title: 'staff', icon: 'mdi-account-multiple', route: '/asset-management/staff' },
+    ],
+  },
+  { title: 'Maintenance', icon: 'mdi-wrench', route: '/maintenance' },
+  { title: 'Retire', icon: 'mdi-archive-arrow-down', route: '/retire' },
+  { title: 'Calibration', icon: 'mdi-tune', route: '/calibration' },
+  { title: 'Reports', icon: 'mdi-file-chart', route: '/Reports' },
+  { title: 'Service Management', icon: 'mdi-clipboard-check', route: '/service-management' },
+  { title: 'Inspections', icon: 'mdi-magnify', route: '/inspection' },
+  { title: 'Reservation', icon: 'mdi-calendar-check', route: '/reservation' },
+  { title: 'Rental', icon: 'mdi-car-key', route: '/rental' },
+  { title: 'Barcode Scanner', icon: 'mdi-barcode-scan', route: '/barcode-scanner' },
+  { title: 'Warranty', icon: 'mdi-shield-check', route: '/warranty' },
+]
