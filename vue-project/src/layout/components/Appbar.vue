@@ -1,6 +1,9 @@
 <template>
   <div>
-    <v-app-bar title="Application bar"></v-app-bar>
+    <!-- <v-app-bar title="Application bar"></v-app-bar> -->
+<div>
+  
+</div>
 
   </div>
 </template>

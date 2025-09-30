@@ -1,0 +1,33 @@
+/* Target the whole scrollbar */
+::-webkit-scrollbar {
+  width: 3px !important;     /* Width of vertical scrollbar */
+  height: 8px;             /* Height of horizontal scrollbar */
+}
+
+/* Track (the background area of scrollbar) */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Thumb (the draggable bar) */
+::-webkit-scrollbar-thumb {
+  background: #b7b3b3;
+  border-radius: 10px;
+}
+
+/* Thumb when hovered */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.main-sidebar{
+.v-list-group__items .v-list-item {
+    padding-inline-start: calc(-8px + var(--indent-padding)) !important;
+}
+
+.v-list-item__content{
+  font-size: 13px !important;
+}
+
+}

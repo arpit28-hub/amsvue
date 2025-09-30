@@ -1,5 +1,5 @@
 export default [
-  { title: 'Dashboard', icon: 'mdi-home', route: '/' },
+  { title: 'Dashboard', icon: 'mdi-view-dashboard', route: '/' },
   {
     title: 'Asset Management',
     icon: 'mdi-archive',
@@ -13,7 +13,7 @@ export default [
   },
   {
     title: 'Contact',
-    icon: 'mdi-archive',
+    icon: 'mdi-phone',
     route: '/contact',
     subMenu: [
       { title: 'customers', icon: 'mdi-account', route: '/asset-management/customers' },
