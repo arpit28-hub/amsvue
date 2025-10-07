@@ -3,11 +3,12 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import vuetify from './@core/plugins/vuetify/index.js'
+import VueApexCharts from "vue3-apexcharts";
 import './@core/scss/index.scss'
 
 
 const app = createApp(App)
-
+app.use(VueApexCharts);
 app.use(router)
 app.use(store)
 app.use(vuetify)

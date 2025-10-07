@@ -6,18 +6,15 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'mainlayout',
       component: MainLayout,
-      children:[
+      children: [
         {
-          path:'',
-          name:'dashboard',
-          component: Dashboard,
-        }
-
-      ]
+          path: '',
+          name: 'dashboard',
+          component: Dashboard
+        },
+      ],
     },
-
   ],
 })
-export default router;
+export default router

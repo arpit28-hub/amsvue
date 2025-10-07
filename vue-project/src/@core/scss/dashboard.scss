@@ -1,0 +1,27 @@
+.performance-section{
+  .cdIcon{
+    // border: 2px solid;
+    padding: 5px;
+    color: #fff !important;
+    border-radius: 10px;
+    // background-color:#2563eb;
+  }
+
+  .shd{
+    // box-shadow:0 0 ;
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.18), 0 1.5px 3px 0 rgba(0, 0, 0, 0.12);
+  }
+}
+
+.alert-sec{
+  .alert-cd{
+    border-radius: 10px;
+    // border-left: 3px solid red;
+  }
+}
+
+.apex-chart{
+  .chart-box{
+    box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.14), 0 2px 8px 0 rgba(0, 0, 0, 0.10);
+  }
+}
