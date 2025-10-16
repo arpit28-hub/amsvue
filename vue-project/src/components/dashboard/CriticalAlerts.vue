@@ -1,7 +1,7 @@
 <template>
   <div class="bg-orange-lighten-5 rounded-lg pa-8 alert-sec">
     <div class="text-h6 mb-5 font-weight-bold">
-      <v-icon color="red-lighten-2">mdi-alert</v-icon> Critical Alerts & Overdue Items
+      <v-icon color="red" size="20">mdi-alert</v-icon> Critical Alerts & Overdue Items
     </div>
     <v-row>
       <v-col cols="4" v-for="(item, index) in alerts" :key="index">

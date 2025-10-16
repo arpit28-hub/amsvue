@@ -2,7 +2,7 @@
   <div class="py-10 apex-chart">
     <v-row>
       <v-col cols="4">
-        <div class=" pa-4 chart-box">
+        <div class="pa-4 chart-box">
           <div class="text-h6 text-start font-weight-bold text-capitalize">Asset Distribution</div>
           <div id="chart">
             <apexchart
@@ -15,7 +15,7 @@
         </div>
       </v-col>
       <v-col cols="4" class="text-center">
-        <div class=" pa-4 chart-box">
+        <div class="pa-4 chart-box">
           <div class="text-h6 text-start font-weight-bold text-capitalize">Depreciation Status</div>
           <div id="chart">
             <apexchart
@@ -28,8 +28,10 @@
         </div>
       </v-col>
       <v-col cols="4" class="text-center">
-        <div class=" pa-4 h-100 chart-box">
-          <div class="text-h6 text-start font-weight-bold text-capitalize">Service Contracts Overview</div>
+        <div class="pa-4 h-100 chart-box">
+          <div class="text-h6 text-start font-weight-bold text-capitalize">
+            Service Contracts Overview
+          </div>
           <div v-for="(item, index) in overview" :key="index">
             <v-card class="my-3" :style="{ backgroundColor: `${item.bg}` }">
               <template #prepend>
@@ -124,9 +126,7 @@ export default {
         legend: {
           position: 'bottom',
         },
-        title: {
-          // text: 'Gradient Donut with custom Start-angle',
-        },
+        title: {},
         responsive: [
           {
             breakpoint: 480,
