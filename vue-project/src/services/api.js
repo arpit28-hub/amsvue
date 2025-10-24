@@ -1,30 +1,30 @@
-// src/services/api.js
+// api.js
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://yourapi.com',
-  timeout: 10000, // 10 sec timeout for safety
+  baseURL: process.env.VITE_API_BASE_URL,
 })
 
-//   Automatically attach token to every request
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token')
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`
-  }
-  return config
-})
+// Add interceptor
+api.interceptors.request.use(
+  function (config) {
+    console.log('Interceptor running for:', config.url)
 
-// Handle unauthorized responses globally
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      localStorage.removeItem('token')
-      window.location.href = '/login' // auto redirect if session expired
+    // Example: Add token to all requests except login
+    const token = localStorage.getItem('token')
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`
     }
+
+    return config
+  },
+  function (error) {
     return Promise.reject(error)
-  }
+  },
+  {
+    // Only run this interceptor if the URL is NOT /login
+    runWhen: (config) => !config.url.includes('/auth/login'),
+  },
 )
 
-export default api;
+export default api

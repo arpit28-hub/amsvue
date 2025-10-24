@@ -75,7 +75,6 @@ const theme = {
       variables: {
         'border-color': '#CFD3EC',
         'medium-emphasis-opacity': 0.68,
-
         // Shadows
         'shadow-key-umbra-opacity': 'rgba(12, 16, 27, 0.15)',
         'shadow-key-penumbra-opacity': 'rgba(12, 16, 27, 0.01)',

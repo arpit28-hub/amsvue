@@ -12,8 +12,8 @@ const router = createRouter({
       name: 'login',
       component: Login,
       children: [
-        { path: 'signin', name: 'signup', component: signUp },
-        { path: '', name: 'signin', component: signIn },
+        { path: '', name: 'signup', component: signUp },
+        { path: 'signin', name: 'signin', component: signIn },
       ],
     },
     {

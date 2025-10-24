@@ -1,40 +1,39 @@
-import { createStore } from 'vuex'
+// store/index.js
+import { createStore } from "vuex";
+import ApiService from "@/services/ApiService";
 
 export default createStore({
   state() {
     return {
       user: null, // store logged-in user
-      isAuthenticated: !!localStorage.getItem('token'),
-      loading: false,
-      errorMessage: null,
-    }
+    };
   },
   mutations: {
     SET_USER(state, user) {
-      state.user = user
-    },
-    SET_LOADING(state, loading) {
-      state.loading = loading
-    },
-    SET_AUTH(state, auth) {
-      state.isAuthenticated = auth
-    },
-    SET_ERROR(state, message) {
-      state.errorMessage = message
+      state.user = user;
     },
   },
   actions: {
-    async login({commit},{email,password}){
-      commit('SET_LOADING', true);
-      commit('SET_ERROR', null);
-      try{
-        const
+    // Login action
+    async login({ commit }, { username, password }) {
+      try {
+        // Call the API from ApiService
+        const userData = await ApiService.loginUser(username, password);
+
+        // Commit the mutation to store user data
+        commit("SET_USER", userData);
+
+        return userData; // optional: useful for the component
+      } catch (error) {
+        // Handle or re-throw the error to the component
+        console.error("Login failed:", error.response ? error.response.data : error.message);
+        throw error;
       }
-    }
-  },
-  getters: {
-    doubleCount(state) {
-      return state.count * 2
     },
   },
-})
+  getters: {
+    isLoggedIn(state) {
+      return !!state.user;
+    },
+  },
+});
