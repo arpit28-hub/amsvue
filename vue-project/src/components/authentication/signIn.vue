@@ -1,6 +1,9 @@
 <template>
   <v-app>
-    <v-main class="d-flex align-center justify-center" style="min-height: 100vh; background: #f3f4f6;">
+    <v-main
+      class="d-flex align-center justify-center"
+      style="min-height: 100vh; background: #f3f4f6"
+    >
       <v-card elevation="6" width="400" class="pa-6 rounded-lg">
         <h2 class="text-h5 text-center mb-6">SignIn</h2>
 
@@ -26,20 +29,14 @@
             required
           />
 
-          <v-btn
-            type="submit"
-            block
-            color="primary"
-            class="mt-2"
-            size="large"
-          >
+          <v-btn  @submit.prevent="handleLogin" block color="primary" class="mt-2" size="large" @click="handleLogin">
             Login
           </v-btn>
         </v-form>
 
         <p class="text-caption text-center mt-4">
           Don't have an account?
-          <a href="#" class="text-primary font-medium">Register</a>
+          <a href="#" class="text-primary font-medium" @click="gotoReg">Register</a>
         </p>
       </v-card>
     </v-main>
@@ -47,19 +44,36 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
+import { mapGetters, mapActions, mapState, mapMutations } from 'vuex'
 export default {
-  name: "LoginView",
+  name: 'signInPage',
   data() {
     return {
-      email: "",
-      password: ""
-    };
+      email: '',
+      password: '',
+    }
   },
   methods: {
-    handleLogin() {
-      console.log("Email:", this.email, "Password:", this.password);
-      alert("Login clicked! You can connect API here.");
+    ...mapActions('authStore',['login']),
+    async handleLogin() {
+      try {
+        const credentials = {
+          "email": this.email,
+          "password": this.password,
+        }
+        const result = await this.login(credentials)
+        console.log('Login successful:', result)
+      }catch (error) {
+        console.error('Login failed:', error)
+        alert('Invalid credentials!')
+      }
+    },
+
+    gotoReg(){
+      // alert('hello')
+      this.$router.push({name:'signup'})
     }
-  }
-};
+  },
+}
 </script>

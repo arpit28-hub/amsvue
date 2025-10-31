@@ -1,39 +1,41 @@
 // store/index.js
-import { createStore } from "vuex";
-import ApiService from "@/services/ApiService";
+import authService from '@/services/authService'
 
-export default createStore({
+export default {
+  namespaced: true,
   state() {
     return {
       user: null, // store logged-in user
-    };
+    }
   },
   mutations: {
     SET_USER(state, user) {
-      state.user = user;
+      state.user = user
     },
   },
   actions: {
     // Login action
-    async login({ commit }, { username, password }) {
+    async login({ commit }, credentials) {
       try {
-        // Call the API from ApiService
-        const userData = await ApiService.loginUser(username, password);
-
-        // Commit the mutation to store user data
-        commit("SET_USER", userData);
-
-        return userData; // optional: useful for the component
+        const userData = await authService.signin(credentials)
+        commit('SET_USER', userData)
+        return userData
       } catch (error) {
-        // Handle or re-throw the error to the component
-        console.error("Login failed:", error.response ? error.response.data : error.message);
-        throw error;
+        console.error('Login failed:', error.response ? error.response.data : error.message)
+        throw error
+      }
+    },
+    async register({ commit }, regInfo) {
+      alert(regInfo.password)
+      try {
+        const userData = await authService.signup(regInfo)
+        // commit('SET_USER', userData)
+        return userData
+      } catch (error) {
+        console.error('registration failed:', error.response ? error.response.data : error.message)
+        throw error
       }
     },
   },
-  getters: {
-    isLoggedIn(state) {
-      return !!state.user;
-    },
-  },
-});
+  getters: {},
+}

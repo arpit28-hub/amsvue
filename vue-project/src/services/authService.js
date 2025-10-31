@@ -1,22 +1,22 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-  baseURL: process.env.VUE_APP_BASE_URL,
+  baseURL: import.meta.env.VITE_BASE_URL,
 })
 
-const data = {
-  username: 'My New Product',
-  password: 99.99,
-}
-
-// apiClient.post("/", data)
-//   .then(res => console.log(res.data))
-//   .catch(err => console.error(err));
 
 export default {
-  async loginUser(username, password) {
+  signin: async (credentials) => {
     try {
-      const response = await apiClient.post('/auth/login', { username, password })
+      const response = await apiClient.post('http://localhost:3001/login', credentials)
+      return response.data
+    } catch (error) {
+      throw error
+    }
+  },
+  signup: async (regInfo) => {
+    try {
+      const response = await apiClient.post('http://localhost:3001/signup', regInfo)
       return response.data
     } catch (error) {
       throw error
