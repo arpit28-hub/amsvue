@@ -29,7 +29,14 @@
             required
           />
 
-          <v-btn  @submit.prevent="handleLogin" block color="primary" class="mt-2" size="large" @click="handleLogin">
+          <v-btn
+            @submit.prevent="handleLogin"
+            block
+            color="primary"
+            class="mt-2"
+            size="large"
+            @click="handleLogin"
+          >
             Login
           </v-btn>
         </v-form>
@@ -39,12 +46,16 @@
           <a href="#" class="text-primary font-medium" @click="gotoReg">Register</a>
         </p>
       </v-card>
+      <form action="http://localhost:3001/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" />
+        <button type="submit">Upload</button>
+      </form>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 import { mapGetters, mapActions, mapState, mapMutations } from 'vuex'
 export default {
   name: 'signInPage',
@@ -55,25 +66,26 @@ export default {
     }
   },
   methods: {
-    ...mapActions('authStore',['login']),
+    ...mapActions('authStore', ['login']),
     async handleLogin() {
       try {
         const credentials = {
-          "email": this.email,
-          "password": this.password,
+          email: this.email,
+          password: this.password,
         }
         const result = await this.login(credentials)
         console.log('Login successful:', result)
-      }catch (error) {
+        this.$router.push({ name: 'mainlayout' })
+      } catch (error) {
         console.error('Login failed:', error)
         alert('Invalid credentials!')
       }
     },
 
-    gotoReg(){
+    gotoReg() {
       // alert('hello')
-      this.$router.push({name:'signup'})
-    }
+      this.$router.push({ name: 'signup' })
+    },
   },
 }
 </script>

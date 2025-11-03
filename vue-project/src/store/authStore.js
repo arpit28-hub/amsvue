@@ -29,7 +29,6 @@ export default {
       alert(regInfo.password)
       try {
         const userData = await authService.signup(regInfo)
-        // commit('SET_USER', userData)
         return userData
       } catch (error) {
         console.error('registration failed:', error.response ? error.response.data : error.message)

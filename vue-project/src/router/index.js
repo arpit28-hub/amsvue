@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import MainLayout from '@/layout/MainLayout.vue'
+import mainlayout from '@/layout/MainLayout.vue'
 import Dashboard from '@/views/Dashboard.vue'
 import Login from '@/views/Login.vue'
 import signIn from '@/components/authentication/signIn.vue'
@@ -18,7 +18,8 @@ const router = createRouter({
     },
     {
       path: '/mainlayout',
-      component: MainLayout,
+      name:'mainlayout',
+      component: mainlayout,
       children: [
         {
           path: '',
