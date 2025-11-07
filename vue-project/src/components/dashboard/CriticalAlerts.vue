@@ -30,13 +30,17 @@
   </div>
 </template>
 <script>
-import { critical_alert_data } from '@/data/dashboard'
+// import { critical_alert_data } from '@/data/dashboard'
+import { mapState } from 'vuex'
 export default {
   name: 'criticalAlerts',
   data() {
     return {
-      alerts: critical_alert_data,
+      // alerts: critical_alert_data,
     }
+  },
+  computed: {
+    ...mapState('dashBoardStore', { alerts: 'critical_alert_data'})
   },
 }
 </script>

@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import signUp from '@/components/authentication/signUp.vue'
-import signIn from '@/components/authentication/signIn.vue'
+import signUp from '@/components/authentication/signUp.vue';
+import signIn from '@/components/authentication/signIn.vue';
 export default {
   name: 'LoginView',
   data() {

@@ -181,17 +181,17 @@
 </template>
 
 <script>
-import { dashboard_Performance_data } from '@/data/dashboard'
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
-      dashPD: dashboard_Performance_data,
       YTDchange: true,
       cpRateChange: true,
     }
   },
 
   computed: {
+    ...mapState('dashBoardStore', { dashPD: 'dashboard_Performance_data' }),
     calChangeYTD() {
       if (this.dashPD.bookValue.changeYTD > 0) {
         this.YTDchange = true

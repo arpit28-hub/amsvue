@@ -9,7 +9,7 @@ export default {
     }
   },
   mutations: {
-    SET_USER(state, user) {
+    SET_USER(state, user){
       state.user = user
     },
   },
@@ -36,5 +36,7 @@ export default {
       }
     },
   },
-  getters: {},
+  getters: {
+
+  },
 }

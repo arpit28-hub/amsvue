@@ -54,16 +54,19 @@
 </template>
 
 <script>
-import { service_contracts_overview } from '@/data/dashboard'
+import { mapState } from 'vuex'
+// import { service_contracts_overview } from '@/data/dashboard'
 import VueApexCharts from 'vue3-apexcharts'
 export default {
   name: 'charts',
   components: {
     apexchart: VueApexCharts,
   },
+  computed: {
+    ...mapState('dashBoardStore', { 'overview': 'service_contracts_overview' }),
+  },
   data() {
     return {
-      overview: service_contracts_overview,
       series1: [15, 5, 35, 25, 20],
       series2: [25, 10, 30, 35],
       chartOptions2: {

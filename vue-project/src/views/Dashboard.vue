@@ -6,9 +6,9 @@
     <Charts></Charts>
   </div>
 </template>
-
 <script>
-import PerformanceSection from '@/components/dashboard/PerformanceSection.vue'
+
+import PerformanceSection from '@/components/dashboard/PerformanceSection.vue';
 import CriticalAlerts from '@/components/dashboard/CriticalAlerts.vue';
 import Charts from '@/components/dashboard/Charts.vue';
 export default {
@@ -16,4 +16,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>
